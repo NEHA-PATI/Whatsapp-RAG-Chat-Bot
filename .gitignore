@@ -10,3 +10,4 @@ django_project/static
 *.log
 
 django_project/.env
+django_project/api/do_test.py
