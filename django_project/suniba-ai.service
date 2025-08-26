@@ -1,0 +1,23 @@
+[Unit]
+Description=Gunicorn daemon for Suniba AI
+Before=nginx.service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/django/suniba-ai/django_project
+ExecStart=/home/django/suniba-ai/venv/bin/gunicorn \
+    --workers 3 \
+    --access-logfile - \
+    --error-logfile - \
+    --name suniba-ai \
+    --bind unix:/home/django/suniba-ai/gunicorn.socket \
+    django_project.wsgi:application
+Restart=always
+SyslogIdentifier=suniba-ai
+User=django
+Group=django
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

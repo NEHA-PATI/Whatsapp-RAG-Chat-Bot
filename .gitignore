@@ -1,0 +1,12 @@
+venv/
+.idea/
+**/__pycache__
+db.sqlite3
+db.sqlite3-journal
+django_project/media
+django_project/static
+*.pyc
+
+*.log
+
+django_project/.env
